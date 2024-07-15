@@ -4,4 +4,4 @@ PoE Ninjaのトレード拡張機能です。キャラクターページ上部�
 
 # 導入方法
 1. Google拡張機能の「[Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=ja)」をインストールする
-2. https://github.com/ryusus4/poe_transfer_jp_language/raw/main/poe_transfer_jp_language.user.js から拡張スクリプトをインストールする
+2. https://github.com/ryusus4/poe_ninja_to_trade/raw/main/poe_ninja_to_trade.user.js から拡張スクリプトをインストールする
