@@ -5,8 +5,8 @@
 // @description  PoE Ninjaのトレード拡張機能です。キャラクターページのアイテムを右クリックすることで、直接日本語版の公式トレードサイトにアクセスできます。
 // @author       ryusus4
 // @match        https://poe.ninja/builds/*/character/*
-// @downloadURL  https://github.com/ryusus4/poe_ninja_to_trade/poe_ninja_to_trade.js
-// @updateURL    https://github.com/ryusus4/poe_ninja_to_trade/poe_ninja_to_trade.js
+// @downloadURL  https://github.com/ryusus4/poe_ninja_to_trade/raw/main/poe_ninja_to_trade.user.js
+// @updateURL    https://github.com/ryusus4/poe_ninja_to_trade/raw/main/poe_ninja_to_trade.user.js
 // @supportURL   https://github.com/ryusus4/poe_ninja_to_trade
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=poe.ninja
 // ==/UserScript==
