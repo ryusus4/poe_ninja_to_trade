@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PoeNinjaToTrade
 // @namespace    https://github.com/ryusus4/poe_ninja_to_trade
-// @version      1.3.24.1
+// @version      1.3.25.1
 // @description  PoE Ninjaのトレード拡張機能です。キャラクターページのアイテムを右クリックすることで、直接日本語版の公式トレードサイトにアクセスできます。
 // @author       ryusus4
 // @match        https://poe.ninja/builds/*/character/*
