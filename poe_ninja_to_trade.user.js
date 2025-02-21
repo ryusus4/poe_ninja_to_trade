@@ -59,7 +59,7 @@
                         q = `{"query":{"type":{"option":"${gem[0]}","discriminator":"${gem[1]}"}}}`
                       }
                       if (q) {
-                        window.open('https://jp.pathofexile.com/trade/search/Settlers?q=' + q)
+                        window.open('https://jp.pathofexile.com/trade/search/Phrecia?q=' + q)
                       }
                     }
                     event.stopPropagation();
@@ -71,7 +71,7 @@
                   const equipName = transNameList[currentTrackingEquipmentName]
                   if (equipName) {
                     const q = `{"query":{"name":"${equipName[0]}","type":"${equipName[1]}"}}`
-                    window.open('https://jp.pathofexile.com/trade/search/Settlers?q=' + q)
+                    window.open('https://jp.pathofexile.com/trade/search/Phrecia?q=' + q)
                   }
                   event.stopPropagation();
                 }
@@ -112,7 +112,7 @@
                 }
                 q = `{"query":{"stats":[{"type":"and","filters":[${stat_filters}]}]}}`
               }
-              window.open('https://jp.pathofexile.com/trade/search/Settlers?q=' + q)
+              window.open('https://jp.pathofexile.com/trade/search/Phrecia?q=' + q)
               event.stopPropagation();
             }
           })
