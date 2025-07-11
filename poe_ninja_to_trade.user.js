@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PoeNinjaToTrade
 // @namespace    https://github.com/ryusus4/poe_ninja_to_trade
-// @version      1.3.26.2
+// @version      1.3.26.3
 // @description  PoE Ninjaのトレード拡張機能です。キャラクターページのアイテムを右クリックすることで、直接日本語版の公式トレードサイトにアクセスできます。
 // @author       ryusus4
 // @match        https://poe.ninja/builds/*/character/*
@@ -156,6 +156,7 @@
   })
 
   const initializeRightClickEvents = (mainTarget) => {
+    setupConfigMenu()
     const allElements = mainTarget.querySelectorAll('*')
     allElements.forEach(parentElement => {
       if (!(parentElement.className && parentRegex.test(parentElement.className))) return
@@ -384,7 +385,6 @@
       observerMainAdding.observe(document.body, { childList: true, subtree: true })
     }
     observerAdding.observe(document.body, { childList: true, subtree: true })
-    setupConfigMenu()
   }
 
   if (document.readyState === 'loading') {
