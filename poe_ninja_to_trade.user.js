@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PoeNinjaToTrade
 // @namespace    https://github.com/ryusus4/poe_ninja_to_trade
-// @version      1.3.26.4
+// @version      1.3.26.5
 // @description  PoE Ninjaのトレード拡張機能です。キャラクターページのアイテムを右クリックすることで、直接日本語版の公式トレードサイトにアクセスできます。
 // @author       ryusus4
 // @match        https://poe.ninja/builds/*/character/*
@@ -53,7 +53,6 @@
     const targetNodes = tippyNode.querySelectorAll('.tippy-box h1')
     const itemNode = targetNodes[0]
     const gemNode = targetNodes[1]
-
     if (itemNode) {
       const targetPrefix = itemNode.querySelector('div')
       const targetNamePrefix = targetPrefix ? targetPrefix.textContent + ' ' : ''
@@ -132,6 +131,40 @@
       if (targetName in transGemNameList) {
         currentTrackingEquipmentName = undefined
         currentTrackingGemName = targetName
+      }
+
+      if (targetName == 'Forbidden Flame Crimson Jewel') {
+        const allocateNode = node.querySelector('#explicit')
+        currentTrackingForbiddenFlameAbility = allocateNode.textContent.match(/Allocates (.*) if you have the matching modifier on Forbidden Flesh/)[1]
+      } else if (targetName == 'Forbidden Flesh Cobalt Jewel') {
+        const allocateNode = node.querySelector('#explicit')
+        currentTrackingForbiddenFleshAbility = allocateNode.textContent.match(/Allocates (.*) if you have the matching modifier on Forbidden Flame/)[1]
+      } else if (targetName == "Watcher's Eye Prismatic Jewel") {
+        const txt = node.textContent
+        currentTrackingEyePassives = []
+        Object.keys(eyePassiveList).forEach(key => {
+          if (txt.includes(key)) {
+            currentTrackingEyePassives.push(eyePassiveList[key])
+          }
+        })
+      } else if (targetName.includes('Cluster Jewel')) {
+        currentTrackingEquipmentName = targetName
+        currentTrackingGemName = undefined
+
+        const txt = node.innerText.replace(/\s+/g, ' ').trim()
+        currentTrackingClusterSize = txt.match(/Adds (\d*) Passive Skills/)[1]
+        Object.keys(clusterBaseList).forEach(key => {
+          if (txt.includes(key)) {
+            currentTrackingClusterBase = clusterBaseList[key]
+          }
+        })
+        currentTrackingClusterPassives = []
+        Object.keys(clusterPassiveList).forEach(key => {
+          const passive_txt = "1 Added Passive Skill is " + key
+          if (txt.includes(passive_txt)) {
+            currentTrackingClusterPassives.push(clusterPassiveList[key])
+          }
+        })
       }
     }
   }
