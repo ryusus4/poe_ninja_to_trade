@@ -123,7 +123,7 @@
   
   const extractItemNameForToopTip = (node) => {
     const titleNode = node.querySelector('h1')
-    const targetName = titleNode.textContent.trim()
+    const targetName = titleNode.innerText.replace(/\s+/g, ' ').trim()
     if (titleNode) {
       if (targetName in transNameList) {
         currentTrackingEquipmentName = targetName
