@@ -127,6 +127,9 @@
       if (targetName in transNameList) {
         currentTrackingEquipmentName = targetName
         currentTrackingGemName = undefined
+      } else if (targetName.startsWith('Foulborn ') && targetName.slice('Foulborn '.length) in transNameList) {
+        currentTrackingEquipmentName = targetName
+        currentTrackingGemName = undefined
       }
       if (targetName in transGemNameList) {
         currentTrackingEquipmentName = undefined
@@ -199,10 +202,18 @@
           childElement.oncontextmenu = function (event) {
             event.preventDefault()
             if (currentTrackingEquipmentName) {
-              const equipName = transNameList[currentTrackingEquipmentName]
-              const q = `{"query":{"name":"${equipName[0]}","type":"${equipName[1]}"}}`
-              const baseURL = (savedLanguage == 'en' ? 'https://www.pathofexile.com/trade/search/' : 'https://jp.pathofexile.com/trade/search/') + (savedLeague || defaultLeague)
-              window.open(baseURL + '?q=' + q)
+              let equipName = transNameList[currentTrackingEquipmentName]
+              let isFoulborn = false
+              if (!equipName && currentTrackingEquipmentName.startsWith('Foulborn ')) {
+                equipName = transNameList[currentTrackingEquipmentName.slice('Foulborn '.length)]
+                isFoulborn = true
+              }
+              if (equipName) {
+                const miscFilter = isFoulborn ? `,"filters":{"misc_filters":{"filters":{"mutated":{"option":"true"}}}}` : ''
+                const q = `{"query":{"name":"${equipName[0]}","type":"${equipName[1]}"${miscFilter}}}`
+                const baseURL = (savedLanguage == 'en' ? 'https://www.pathofexile.com/trade/search/' : 'https://jp.pathofexile.com/trade/search/') + (savedLeague || defaultLeague)
+                window.open(baseURL + '?q=' + q)
+              }
             } else if (currentTrackingGemName) {
               const gem = transGemNameList[currentTrackingGemName]
               let q = undefined
