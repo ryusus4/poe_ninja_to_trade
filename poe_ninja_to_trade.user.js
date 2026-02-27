@@ -222,7 +222,7 @@
       })
     })
 
-    const childJewelElements = mainTarget.querySelectorAll('._layout-cluster_hedo7_1 div div img')
+    const childJewelElements = mainTarget.querySelectorAll('[class*="_layout-cluster_"] div div img')
     childJewelElements.forEach(childJewelElement => {
       childJewelElement.oncontextmenu = function (event) {
         event.preventDefault()
@@ -261,7 +261,7 @@
       }
     })
 
-    const menuButtonTarget = document.querySelector('._equipment_1puug_1')
+    const menuButtonTarget = document.querySelector('[class*="_equipment_"]')
     if (menuButtonTarget) {
       positionButton(menuButtonTarget)
       window.addEventListener('scroll', () => positionButton(menuButtonTarget))
