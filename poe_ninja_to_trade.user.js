@@ -191,6 +191,10 @@
         } else if (node.getAttribute('role') === 'tooltip' && node.querySelector('h1') !== null) {
           extractItemNameForToopTip(node)
         }
+        if (parentRegex.test(node.className || '') || node.querySelector('[class*="_equipment_"]')) {
+          const mainTarget = document.querySelector('main') || document.body
+          initializeRightClickEvents(mainTarget)
+        }
       })
     })
   })
@@ -314,6 +318,7 @@
   })
 
   const setupConfigMenu = () => {
+    if (document.querySelector('#poeninja-to-trade-settings-button')) return
     const style = document.createElement('style')
     style.textContent = `
       #poeninja-to-trade-settings-menu h4 {
