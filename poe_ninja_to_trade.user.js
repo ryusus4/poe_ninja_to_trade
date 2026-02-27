@@ -422,6 +422,12 @@
       settingsMenu.style.display = settingsMenu.style.display === 'block' ? 'none' : 'block'
     })
 
+    document.addEventListener('click', (event) => {
+      if (settingsMenu.style.display === 'block' && !settingsMenu.contains(event.target) && !settingsButton.contains(event.target)) {
+        settingsMenu.style.display = 'none'
+      }
+    })
+
     leagueInput.addEventListener('input', () => {
       localStorage.setItem(storageKeyLeague, leagueInput.value)
       savedLeague = leagueInput.value
