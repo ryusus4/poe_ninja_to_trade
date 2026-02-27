@@ -213,6 +213,7 @@
                 const q = `{"query":{"name":"${equipName[0]}","type":"${equipName[1]}"${miscFilter}}}`
                 const baseURL = (savedLanguage == 'en' ? 'https://www.pathofexile.com/trade/search/' : 'https://jp.pathofexile.com/trade/search/') + (savedLeague || defaultLeague)
                 window.open(baseURL + '?q=' + q)
+                setTimeout(() => document.body.dispatchEvent(new MouseEvent('click', { bubbles: true })), 50)
               }
             } else if (currentTrackingGemName) {
               const gem = transGemNameList[currentTrackingGemName]
@@ -225,6 +226,7 @@
               if (q) {
                 const baseURL = (savedLanguage == 'en' ? 'https://www.pathofexile.com/trade/search/' : 'https://jp.pathofexile.com/trade/search/') + (savedLeague || defaultLeague)
                 window.open(baseURL + '?q=' + q)
+                setTimeout(() => document.body.dispatchEvent(new MouseEvent('click', { bubbles: true })), 50)
               }
             }
             event.stopPropagation()
@@ -268,6 +270,7 @@
         }
         const baseURL = (savedLanguage == 'en' ? 'https://www.pathofexile.com/trade/search/' : 'https://jp.pathofexile.com/trade/search/') + (savedLeague || defaultLeague)
         window.open(baseURL + '?q=' + q)
+        setTimeout(() => document.body.dispatchEvent(new MouseEvent('click', { bubbles: true })), 50)
         event.stopPropagation()
       }
     })
